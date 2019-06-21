@@ -1,7 +1,9 @@
-package RaceCar;
+package raceCar;
 
 
-import RaceCar.suspension.Suspension;
+import raceCar.carBody.CarBody;
+import raceCar.carBody.FuelTank;
+import raceCar.suspension.Suspension;
 import org.junit.Test;
 
 public class RaceCarTest {
@@ -14,6 +16,6 @@ public class RaceCarTest {
             .build();
     @Test
     public void engineTest() {
-        wt01.getEngine().getPower();
+        wt01.getEngine().getTorque();
     }
 }

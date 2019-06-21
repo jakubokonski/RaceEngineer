@@ -1,14 +1,18 @@
-package RaceCar;
+package raceCar;
 
-import RaceCar.engine.Engine;
-import RaceCar.suspension.Suspension;
-import Track.TrackDummy;
+import raceCar.carBody.CarBody;
+import raceCar.carBody.FuelTank;
+import raceCar.engine.Engine;
+import raceCar.gearbox.GearBox;
+import raceCar.suspension.Suspension;
+import Track.Track;
 
 public class RaceCar {
 
     private String carName;
     private CarBody carBody;
     private Engine engine;
+    private GearBox gearBox;
     private FuelTank fuelTank;
     private Suspension suspension;
     long segmentSpeed;
@@ -19,13 +23,12 @@ public class RaceCar {
      * Use: body weight and engine power div by factor
      * @return
      */
-    private double topSpeedCalculationFactor = 1;
     public double getTopSpeed() {
-        topSpeed = (((double)(this.getCarBody().bodyWeight + this.getFuelTank().getFuelWeight()) * (double) this.getEngine().getPower()) / 1698);
+        topSpeed = engine.getTorque() / (carBody.getAeroDragFactor() + suspension.getTyreFriction());
         return topSpeed;
     }
 
-    public long getSegmentSpeed(TrackDummy track) {
+    public long getSegmentSpeed(Track track) {
         for (int segment = 0; segment < track.getTrackSegments().size(); segment++) {
             track.getTrackSegments().get(segment).getCornering();
         }
@@ -36,6 +39,7 @@ public class RaceCar {
         carName = builder.carName;
         carBody = builder.carBody;
         engine = builder.engine;
+        gearBox = builder.gearBox;
         fuelTank = builder.fuelTank;
         suspension = builder.suspension;
     }
@@ -52,6 +56,10 @@ public class RaceCar {
         return engine;
     }
 
+    public GearBox getGearBox() {
+        return gearBox;
+    }
+
     public FuelTank getFuelTank() {
         return fuelTank;
     }
@@ -62,7 +70,7 @@ public class RaceCar {
 
     @Override
     public String toString() {
-        return "RaceCar{" +
+        return "raceCar{" +
                 "carName='" + carName + '\'' +
                 ", engine=" + engine +
                 ", fuelTank=" + fuelTank +
@@ -75,6 +83,7 @@ public class RaceCar {
         private String carName;
         private CarBody carBody;
         private Engine engine;
+        private GearBox gearBox;
         private FuelTank fuelTank;
         private Suspension suspension;
 
@@ -82,6 +91,7 @@ public class RaceCar {
             this.carName = carName;
             this.carBody = carBody;
             this.engine = engine;
+            this.gearBox = gearBox;
             this.fuelTank = fuelTank;
             this.suspension = suspension;
         }
@@ -98,6 +108,11 @@ public class RaceCar {
 
         public Builder engine(Engine engine) {
             this.engine = engine;
+            return this;
+        }
+
+        public Builder gearBox(GearBox gearBox) {
+            this.gearBox = gearBox;
             return this;
         }
 

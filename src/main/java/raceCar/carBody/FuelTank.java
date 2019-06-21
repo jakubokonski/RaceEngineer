@@ -1,4 +1,4 @@
-package RaceCar;
+package raceCar.carBody;
 
 public class FuelTank {
     private int fuelTankCapacity;

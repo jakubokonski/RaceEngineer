@@ -1,18 +1,18 @@
 package Track;
 
-import RaceCar.RaceCar;
+import raceCar.RaceCar;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TrackDummy {
+public class Track {
 
     List<TrackSegment> trackSegments;
     TrackSegment trackSegment;
     int lapTime = 0;
     int segmentTime;
 
-    public TrackDummy() {
+    public Track() {
         trackSegments = new ArrayList<TrackSegment>();
     }
 
@@ -24,17 +24,17 @@ public class TrackDummy {
         trackSegments.add(trackSegment);
     }
 
-    public int getLapTime(RaceCar raceCar) {
-        for (int segments = 0; segments < trackSegments.size(); segments++) {
-            segmentTime = raceCar.getEngine().getPower() * trackSegments.get(segments).getCornering();
-            lapTime = lapTime + segmentTime;
-        }
-        return lapTime;
-    }
+//    public int getLapTime(RaceCar raceCar) {
+//        for (int segments = 0; segments < trackSegments.size(); segments++) {
+//            segmentTime = raceCar.getEngine().getTorque() * trackSegments.get(segments).getCornering();
+//            lapTime = lapTime + segmentTime;
+//        }
+//        return lapTime;
+//    }
 
     @Override
     public String toString() {
-        return "TrackDummy{" +
+        return "Track{" +
                 "trackSegmentsNo=" + trackSegments.size() +
                 ", trackSegments=" + trackSegments.toString() +
                 '}';

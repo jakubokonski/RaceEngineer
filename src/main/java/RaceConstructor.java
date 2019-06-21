@@ -1,10 +1,10 @@
 import Track.TrackSegment;
-import Track.TrackDummy;
+import Track.Track;
 
 public class RaceConstructor {
     public static void main(String[] args) {
 
-        TrackDummy trackDummy = new TrackDummy();
+        Track trackDummy = new Track();
         trackDummy.addSegment(new TrackSegment(10));
         trackDummy.addSegment(new TrackSegment(5));
         trackDummy.addSegment(new TrackSegment(10));

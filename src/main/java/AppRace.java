@@ -1,5 +1,3 @@
-import RaceCar.RaceCar;
-
 public class AppRace {
 
     public static void main(String[] args) {
@@ -7,14 +5,14 @@ public class AppRace {
         // Race Car:
 //        StringBuilder trackTime;
         //ENGINE:
-//        RaceCar.engine.Engine engineUnit = new RaceCar.engine.Engine();
+//        raceCar.engine.Engine engineUnit = new raceCar.engine.Engine();
 //        engineUnit.setEcu(0.1);
 //
 //        //FUEL TANK
-//        RaceCar.FuelTank fuelTank = new RaceCar.FuelTank();
+//        raceCar.carBody.FuelTank fuelTank = new raceCar.carBody.FuelTank();
 //
 //        //RACECAR
-//        RaceCar williams = new RaceCar("TC01", engineUnit, fuelTank);
+//        raceCar williams = new raceCar("TC01", engineUnit, fuelTank);
 //
 //        //TRACK
 //        TrackSegmentOLD segment1 = new TrackSegmentOLD(1,  100, 3);
@@ -36,23 +34,23 @@ public class AppRace {
 ////        trackTime = spainGP.getLapTime(williams, spainGP);
 //
 //        System.out.println("ENGINE DATA:");
-//        System.out.println("ECU: " + engineUnit.getEcuSetting());
-//        System.out.println("RaceCar.FuelTank Mod: " + engineUnit.getFuelMod());
-//        System.out.println("RaceCar.FuelTank Cons: " + engineUnit.getFuelConsumption());
-//        System.out.println("RaceCar.engine.Engine power: " + engineUnit.getPower() + "bhp");
+//        System.out.println("ECU: " + engineUnit.getEcuSettings());
+//        System.out.println("raceCar.carBody.FuelTank Mod: " + engineUnit.getFuelMod());
+//        System.out.println("raceCar.carBody.FuelTank Cons: " + engineUnit.getFuelConsumption());
+//        System.out.println("raceCar.engine.Engine power: " + engineUnit.getTorque() + "bhp");
 //
 //        System.out.println("New ECU settings:");
 //        engineUnit.setEcu(0.5);
-//        System.out.println("New ECU: " + engineUnit.getEcuSetting());
-//        System.out.println("RaceCar.FuelTank Mod: " + engineUnit.getFuelMod());
-//        System.out.println("RaceCar.FuelTank Cons new: " + engineUnit.getFuelConsumption());
-//        System.out.println("Power: " + williams.engine.getPower() + "bhp");
-////        System.out.printf("RaceCar.FuelTank Cons formatted: %.2f \n", engineUnit.getFuelConsumption());
+//        System.out.println("New ECU: " + engineUnit.getEcuSettings());
+//        System.out.println("raceCar.carBody.FuelTank Mod: " + engineUnit.getFuelMod());
+//        System.out.println("raceCar.carBody.FuelTank Cons new: " + engineUnit.getFuelConsumption());
+//        System.out.println("Power: " + williams.engine.getTorque() + "bhp");
+////        System.out.printf("raceCar.carBody.FuelTank Cons formatted: %.2f \n", engineUnit.getFuelConsumption());
 //
 //        System.out.println("FUEL DATA");
-//        System.out.println("RaceCar.FuelTank amount: " + fuelTank.getFuelAmount());
+//        System.out.println("raceCar.carBody.FuelTank amount: " + fuelTank.getFuelAmount());
 //        fuelTank.setFuelAmount(10);
-//        System.out.println("RaceCar.FuelTank amount: " + williams.fuelTank.getFuelAmount());
+//        System.out.println("raceCar.carBody.FuelTank amount: " + williams.fuelTank.getFuelAmount());
 //
 //        System.out.println("TRACK DATA:");
 //        System.out.println("TrackSegments information: " + spanishGPsegments.get(2).getSpeedMod());
