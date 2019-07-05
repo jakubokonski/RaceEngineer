@@ -12,10 +12,11 @@ public class RaceCarPhysics {
      *
      */
 
-    private double wheelMomentum;
+    static double wheelMomentum;
 
     public static double getWheelMomentum(RaceCar raceCar) {
-        return 1;
+        wheelMomentum = raceCar.getEngine().getTorque() * raceCar.getGearBox().getMainGearFactor();
+        return wheelMomentum;
     }
 
 }
