@@ -2,19 +2,19 @@ package raceCar.suspension;
 
 public class Suspension {
 
-    private double tyreFriction;
-    private double tyreRadius;
+    private double tyreFrictionCoefficient;
+    private double tyrePressure;
 
     public Suspension() {
-        tyreFriction = 2.3;
-        tyreRadius = 0.4;
+        tyreFrictionCoefficient = 0.8;
+        tyrePressure = 2.3;
     }
 
-    public double getTyreFriction() {
-        return tyreFriction;
+    public double getTyreFrictionCoefficient() {
+        return tyreFrictionCoefficient;
     }
 
-    public double getTyreRadius() {
-        return tyreRadius;
+    public double getTyrePressure() {
+        return tyrePressure;
     }
 }

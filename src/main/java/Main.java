@@ -3,26 +3,24 @@ import raceCar.engine.Engine;
 import raceCar.carBody.FuelTank;
 import raceCar.gearbox.GearBox;
 import raceCar.suspension.Suspension;
-import raceCar.carBody.CarBody;
-import Track.Track;
-import Track.TrackSegment;
+import raceCar.carBody.Body;
+import track.*;
 
-import static raceCar.RaceCarPhysics.getWheelMomentum;
+import static raceCar.mechanics.Physics.*;
 
 public class Main {
     public static void main(String[] args) {
 
         Engine fw01engine = new Engine();
         GearBox fw01gearbox = new GearBox();
-        CarBody fw01Body = new CarBody(800);
+        Body fw01Body = new Body(800);
         FuelTank fw01fuelTank = new FuelTank();
         Suspension fw01suspension = new Suspension();
 
         RaceCar williams = new RaceCar.Builder()
-                .carName("fw01")
                 .engine(fw01engine)
                 .gearBox(fw01gearbox)
-                .carbody(fw01Body)
+                .body(fw01Body)
                 .fuelTank(fw01fuelTank)
                 .suspension(fw01suspension)
                 .build();
@@ -37,15 +35,18 @@ public class Main {
 
         williams.getEngine().setEcu(1);
         williams.getFuelTank().setFuelAmount(20);
-        System.out.println("ECU: " + williams.getEngine().getEcuSettings());
-        System.out.println("Body Weight: " + williams.getCarBody().getBodyWeight());
-        System.out.println("Fuel: " + williams.getFuelTank().getFuelAmount());
-        System.out.println("Fuel Tank weitght: " + williams.getFuelTank().getFuelWeight());
-        System.out.println("Power: " + williams.getEngine().getTorque());
-        System.out.println("raceCar top speed: " + williams.getTopSpeed());
-        System.out.println("Heat generation: " + williams.getEngine().getHeatGeneration());
+        System.out.println("Torque: " + williams.getEngine().getTorque() + "Nm");
+        System.out.println("GearBox main ratio: " + williams.getGearBox().getMainGearFactor());
+        System.out.println("GearBox average ratio: " + williams.getGearBox().getAverageGearFactor());
+        System.out.println("Car total mass: " + williams.getTotalMass() + "kg");
+        System.out.println("Tyre friction: " + williams.getSuspension().getTyreFrictionCoefficient());
+        System.out.println(" ");
+        System.out.println("Wheel Momentum: " + wheelMomentum(williams));
+        System.out.println("Acceleration Rate: " + accelerationRate(williams));
+        System.out.println("\n");
+        System.out.println("Top Speed: " + topSpeed(williams) + "km/h");
+        System.out.println("Aero drag: " + aeroDrag(williams));
 
-        System.out.println("Wheel Momentum: " + getWheelMomentum(williams));
 
     }
 }

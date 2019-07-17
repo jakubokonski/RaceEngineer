@@ -1,6 +1,6 @@
 package raceCar.carBody;
 
-public class CarBody {
+public class Body {
 
     private int bodyWeight;
     private double aeroDragFactor;
@@ -10,12 +10,11 @@ public class CarBody {
      * bodyWeight in kg
      * aeroDragFactor - no units
      * carBodySectionArea in sqm
-     * @param bodyWeight
      */
-    public CarBody(int bodyWeight) {
+    public Body(int bodyWeight) {
         this.bodyWeight = bodyWeight;
-        aeroDragFactor = 2.5;
-        carBodySectionArea = 1.2;
+        aeroDragFactor = 0.26;
+        carBodySectionArea = 2.36;
     }
 
     public int getBodyWeight() {

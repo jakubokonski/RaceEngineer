@@ -28,7 +28,7 @@ public class AppRace {
 //        spanishGPsegments.add(segment4);
 //        spanishGPsegments.add(segment5);
 //
-//        Track spanishGP = new Track(spanishGPsegments);
+//        track spanishGP = new track(spanishGPsegments);
 //
 //
 ////        trackTime = spainGP.getLapTime(williams, spainGP);
@@ -54,6 +54,6 @@ public class AppRace {
 //
 //        System.out.println("TRACK DATA:");
 //        System.out.println("TrackSegments information: " + spanishGPsegments.get(2).getSpeedMod());
-//        System.out.println("Track test: " + spanishGP);
+//        System.out.println("track test: " + spanishGP);
     }
 }

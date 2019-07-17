@@ -3,11 +3,11 @@ package raceCar.gearbox;
 public class GearBox {
 
     private double mainGearFactor;
-    private double averangeGearFactor;
+    private double averageGearFactor;
 
     public GearBox() {
-        this.mainGearFactor = 4;
-        this.averangeGearFactor = 1;
+        this.mainGearFactor = 1;
+        this.averageGearFactor = 4;
     }
 
     public double getMainGearFactor() {
@@ -18,11 +18,19 @@ public class GearBox {
         this.mainGearFactor = mainGearFactor;
     }
 
-    public double getAverangeGearFactor() {
-        return averangeGearFactor;
+    public double getAverageGearFactor() {
+        return averageGearFactor;
     }
 
-    public void setAverangeGearFactor(double averangeGearFactor) {
-        this.averangeGearFactor = averangeGearFactor;
+    public void setAverageGearFactor(double averageGearFactor) {
+        this.averageGearFactor = averageGearFactor;
+    }
+
+    @Override
+    public String toString() {
+        return "GearBox{" +
+                "mainGearFactor=" + mainGearFactor +
+                ", averageGearFactor=" + averageGearFactor +
+                '}';
     }
 }

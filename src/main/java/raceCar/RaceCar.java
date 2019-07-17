@@ -1,55 +1,35 @@
 package raceCar;
 
-import raceCar.carBody.CarBody;
+import raceCar.carBody.Body;
 import raceCar.carBody.FuelTank;
 import raceCar.engine.Engine;
 import raceCar.gearbox.GearBox;
 import raceCar.suspension.Suspension;
-import Track.Track;
 
 public class RaceCar {
 
-    private String carName;
-    private CarBody carBody;
+    private Body body;
     private Engine engine;
     private GearBox gearBox;
     private FuelTank fuelTank;
     private Suspension suspension;
-    long segmentSpeed;
-    double topSpeed;
+    private double velocity;
 
-    /**
-     * Top speed calculations working fine so far.
-     * Use: body weight and engine power div by factor
-     * @return
-     */
-    public double getTopSpeed() {
-        topSpeed = engine.getTorque() / (carBody.getAeroDragFactor() + suspension.getTyreFriction());
-        return topSpeed;
-    }
-
-    public long getSegmentSpeed(Track track) {
-        for (int segment = 0; segment < track.getTrackSegments().size(); segment++) {
-            track.getTrackSegments().get(segment).getCornering();
-        }
-        return segmentSpeed;
+    public double getTotalMass() {
+        return body.getBodyWeight() + fuelTank.getFuelWeight();
     }
 
     private RaceCar(Builder builder) {
-        carName = builder.carName;
-        carBody = builder.carBody;
+        body = builder.body;
         engine = builder.engine;
         gearBox = builder.gearBox;
         fuelTank = builder.fuelTank;
         suspension = builder.suspension;
+        velocity = 0;
     }
 
-    public String getCarName() {
-        return carName;
-    }
-
-    public CarBody getCarBody() {
-        return carBody;
+    public Body getBody() {
+        return body;
     }
 
     public Engine getEngine() {
@@ -68,11 +48,20 @@ public class RaceCar {
         return suspension;
     }
 
+    public double getVelocity() {
+        return velocity;
+    }
+
+    public void setVelocity(double velocity) {
+        this.velocity = velocity;
+    }
+
     @Override
     public String toString() {
-        return "raceCar{" +
-                "carName='" + carName + '\'' +
+        return "RaceCar{" +
+                "body=" + body +
                 ", engine=" + engine +
+                ", gearBox=" + gearBox +
                 ", fuelTank=" + fuelTank +
                 ", suspension=" + suspension +
                 '}';
@@ -80,29 +69,23 @@ public class RaceCar {
 
     public static class Builder {
 
-        private String carName;
-        private CarBody carBody;
+        private Body body;
         private Engine engine;
         private GearBox gearBox;
         private FuelTank fuelTank;
         private Suspension suspension;
 
         public Builder() {
-            this.carName = carName;
-            this.carBody = carBody;
+            this.body = body;
             this.engine = engine;
             this.gearBox = gearBox;
             this.fuelTank = fuelTank;
             this.suspension = suspension;
         }
 
-        public Builder carName (String carName) {
-            this.carName = carName;
-            return this;
-        }
 
-        public Builder carbody (CarBody carBody) {
-            this.carBody = carBody;
+        public Builder body (Body body) {
+            this.body = body;
             return this;
         }
 
